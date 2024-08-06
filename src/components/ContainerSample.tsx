@@ -1,4 +1,9 @@
-const Container = (props: { title: string; children: React.ReactElement }) => {
+type ContainerProps = {
+    title: string
+    children: React.ReactNode
+}
+
+const Container = (props: ContainerProps): JSX.Element => {
     const { title, children } = props
   
     return (
