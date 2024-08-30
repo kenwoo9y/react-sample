@@ -1,7 +1,9 @@
 import { useReducer } from 'react'
 
+// reducerが受け取るactionの型を定義
 type Action = 'DECREMENT' | 'INCREMENT' | 'DOUBLE' | 'RESET'
 
+// 現在の状態とactionにもとづいて次の状態を返す
 const reducer = (currentCount: number, action: Action) => {
   switch (action) {
     case 'INCREMENT':
@@ -23,11 +25,13 @@ type CounterProps = {
 
 const Counter = (props: CounterProps) => {
   const { initialValue } = props
+  // const [現在の状態, dispatch] = useReducer(reducer, reducerに渡される初期状態)
   const [count, dispatch] = useReducer(reducer, initialValue)
 
   return (
     <div>
       <p>Count: {count}</p>
+      {/* dispatch関数にactionを渡して、状態を更新 */}
       <button onClick={() => dispatch('DECREMENT')}>-</button>
       <button onClick={() => dispatch('INCREMENT')}>+</button>
       <button onClick={() => dispatch('DOUBLE')}>×2</button>
